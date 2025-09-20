@@ -40,3 +40,10 @@ divs.forEach((div) => {
     })
     }); 
 });
+
+//Step 3 is done. Now I need to figure out how to change the amount of div's in my sketchpad. 
+//I think I need to start by researching how my border affects the size of my div. Something 
+//messed up the size of my static pad and I believe it has to do with my borders.
+//I believe I can set a static size, lets call it sketchPadWidth = 960 and then divide
+//whatever number the user enters into that to get the width/height of my divs. Although
+//I still have to figure out and factor the border width into the situation first.
