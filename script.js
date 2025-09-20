@@ -32,7 +32,11 @@ for (i = 0; i < divAmount; i++){
 
 const divs = document.querySelectorAll("div");
 divs.forEach((div) => {
-    div.addEventListener("click", ()=> {
+    div.addEventListener("mouseenter", ()=> {
         console.log(div.className)
+        div.style.backgroundColor = 'hsl(100, 100%, 76%)';
+    div.addEventListener("mouseleave", () => {
+        div.style.backgroundColor = 'hsl(100, 100%,86%)';
+    })
     }); 
 });
