@@ -1,31 +1,42 @@
 
 let gridSize = 16;
+let sketchSize = 800; // This is a dummy value for now. I want to have the ability to in the future set pad size from JS
+calculateSketch();
 const gridButton = document.querySelector("#grid");
 gridButton.addEventListener("click", () => {
-    gridSize = prompt("What size of Grid do you want?");
+    let gridSizeInput = prompt("What size of Grid do you want?");
+    gridSize = Number(gridSizeInput)
+    container.replaceChildren();
     console.log(gridSize);
+    calculateSketch();
+    
 })
 
-const testButton = document.querySelector("#testButton");
-testButton.addEventListener("click", () => {
-    container.replaceChildren();
-})
+// const testButton = document.querySelector("#testButton");
+// testButton.addEventListener("click", () => {
+//     container.replaceChildren();
+// })
 
 //I am going to focus on one part of this project at a time. My first goal is to create a 16x16 grid worth of divs.
 //I think I am going to use a for loop for this process. Once I have created the div's I will work on putting
 //them in a grid using FlexBox.
 
-let divAmount = 16 * 16;
-const container = document.querySelector("#container");
+function calculateSketch(){
+    if(gridSize > 100) gridSize = 100;    
+    console.log(gridSize);
+    let divAmount = gridSize * gridSize;
+    const container = document.querySelector("#container");
 
-for (i = 0; i < divAmount; i++){
+    for (i = 0; i < divAmount; i++){
 
-    const content = document.createElement("div");
-    content.classList.add("content" + i);
-    content.textContent = `Div ${i}`;
-    container.appendChild(content);
+        const content = document.createElement("div");
+        content.classList.add("content" + i);
+        content.textContent = `Div ${i}`;
+        content.style.width = `${sketchSize / gridSize}px`
+        content.style.height = `${sketchSize / gridSize}px`
+        container.appendChild(content);
 }
-
+};
 //Need to add an effect when I hover over a div with my mouse.
 //I know I need to use something like this.
 //btn.addEventListener('hover', function (e) {
