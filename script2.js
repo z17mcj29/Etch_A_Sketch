@@ -15,12 +15,22 @@ gridButton.addEventListener("click", () => {
     
 })
 
-let hue = 0//insert random calculation here; Hue goes to 360
-let saturation = 0//insert random calculation here; Saturation goes to 100
-let lightness = 0//insert random calculation here; random goes to 100
+    function randomHue() {
+
+        let hue =           Math.floor(Math.random() * 360);//insert random calculation here; Hue goes to 360
+        let saturation =    Math.floor(Math.random() * 100);//insert random calculation here; Saturation goes to 100
+        let lightness =     Math.floor(Math.random() * 100)//insert random calculation here; random goes to 100
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`
+        
+    }
+
+    
 
 
 function calculateSketch(){
+
+   
+
     if(gridSize > 100) gridSize = 100;    
     console.log(gridSize);
     let divAmount = gridSize * gridSize;
@@ -34,7 +44,7 @@ function calculateSketch(){
         content.style.width = `${sketchSize / gridSize}px`
         content.style.height = `${sketchSize / gridSize}px`
 
-        content.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        content.style.backgroundColor = randomHue();
 
         container.appendChild(content);
 }
@@ -43,11 +53,14 @@ function calculateSketch(){
 
 const divs = document.querySelectorAll("div");
 divs.forEach((div) => {
+    let backgroundColor = '';
     div.addEventListener("mouseenter", ()=> {
+        const computedStyle = window.getComputedStyle(div);
+        backgroundColor = computedStyle.getPropertyValue('background-color');
         console.log(div.className)
-        div.style.backgroundColor = 'hsl(100, 100%, 76%)';
+        div.style.backgroundColor = 'hsla(0, 0%, 2%, 1.00)';
     div.addEventListener("mouseleave", () => {
-        div.style.backgroundColor = 'hsl(100, 100%,86%)';
+        div.style.backgroundColor = backgroundColor;
     })
     }); 
 });
