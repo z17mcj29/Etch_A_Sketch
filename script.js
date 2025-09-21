@@ -5,7 +5,11 @@ gridButton.addEventListener("click", () => {
     gridSize = prompt("What size of Grid do you want?");
     console.log(gridSize);
 })
-console.log(gridSize);
+
+const testButton = document.querySelector("#testButton");
+testButton.addEventListener("click", () => {
+    container.replaceChildren();
+})
 
 //I am going to focus on one part of this project at a time. My first goal is to create a 16x16 grid worth of divs.
 //I think I am going to use a for loop for this process. Once I have created the div's I will work on putting
