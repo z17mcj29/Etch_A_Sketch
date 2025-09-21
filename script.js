@@ -69,3 +69,6 @@ divs.forEach((div) => {
 //I believe I can set a static size, lets call it sketchPadWidth = 960 and then divide
 //whatever number the user enters into that to get the width/height of my divs. Although
 //I still have to figure out and factor the border width into the situation first.
+
+//My notes aren't in the proper order as I kept putting my code near the top.
+//I'm going to do the Extra Credit, but I'm going to wait a few days and continue on with the course first.
